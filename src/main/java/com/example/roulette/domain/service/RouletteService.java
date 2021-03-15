@@ -8,5 +8,7 @@ public interface RouletteService {
 
     List<RouletteDTO> getRoulettes();
 
+    String createRoulette();
+
 }
 

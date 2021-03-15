@@ -22,4 +22,9 @@ public class Controller {
         return ResponseEntity.ok(rouletteService.getRoulettes());
     }
 
+    @RequestMapping(path = "/v1/Rulette", method = RequestMethod.POST)
+    public ResponseEntity<String> createRoulette() {
+        return ResponseEntity.ok(rouletteService.createRoulette());
+    }
+
 }

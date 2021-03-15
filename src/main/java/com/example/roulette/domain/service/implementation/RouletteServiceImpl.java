@@ -26,4 +26,11 @@ public class RouletteServiceImpl implements RouletteService {
         return roulettes;
     }
 
+    @Override
+    public String createRoulette() {
+        Roulette newRoulette = new Roulette();
+        rouletteRepository.insert(newRoulette);
+        return newRoulette.getId();
+    }
+
 }
