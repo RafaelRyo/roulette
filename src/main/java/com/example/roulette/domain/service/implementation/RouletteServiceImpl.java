@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 @Slf4j
 @Service
 public class RouletteServiceImpl implements RouletteService {
@@ -32,5 +34,20 @@ public class RouletteServiceImpl implements RouletteService {
         rouletteRepository.insert(newRoulette);
         return newRoulette.getId();
     }
+
+    @Override
+    public String openRoulette(String idRoulette) {
+
+        Optional<Roulette> roulette = rouletteRepository.findById(idRoulette);
+        if (roulette.isEmpty()) {
+           return "Roulette does not exist!";
+        }else{
+            Roulette newRoulette = new Roulette(idRoulette, "ACTIVE");
+            rouletteRepository.save(newRoulette);
+            return newRoulette.getStatus();
+        }
+
+    }
+
 
 }

@@ -4,6 +4,7 @@ import com.example.roulette.controller.dto.RouletteDTO;
 import com.example.roulette.domain.service.RouletteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,4 +28,8 @@ public class Controller {
         return ResponseEntity.ok(rouletteService.createRoulette());
     }
 
+    @RequestMapping(path = "/v1/Rulette/{idRoulette}/activate", method = RequestMethod.PUT)
+    public ResponseEntity<String> openRoulette(@PathVariable(name = "idRoulette") String id) {
+        return ResponseEntity.ok(rouletteService.openRoulette(id));
+    }
 }

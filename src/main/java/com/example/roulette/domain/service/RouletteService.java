@@ -10,5 +10,7 @@ public interface RouletteService {
 
     String createRoulette();
 
+    String openRoulette(String id);
+
 }
 
